@@ -8,39 +8,11 @@
 <body>
 </body>
 <script>
-    function getQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]);
-        return null;
-    }
-    var param = getQueryString('s');
-    if (param != null) {
-        window.location.href = 'https://w.url.cn/s/' + param;
+    var s = window.location.search;
+    if (s.indexOf("?") != -1) {
+        window.location.href = 'https://w.url.cn/s/' + s.slice(1);
     } else {
-        f_close('closeWindow');
-    }
-
-    function f_close() {
-        if (typeof(WeixinJSBridge) != "undefined") {
-            WeixinJSBridge.call('closeWindow');
-        } else {
-            if (navigator.userAgent.indexOf("MSIE") > 0) {
-                if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
-                    window.opener = null;
-                    window.close();
-                } else {
-                    window.open('', '_top');
-                    window.top.close();
-                }
-            } else if (navigator.userAgent.indexOf("Firefox") > 0) {
-                window.location.href = 'about:blank ';
-            } else {
-                window.opener = null;
-                window.open('', '_self', '');
-                window.close();
-            }
-        }
+        window.location.href = 'https://www.baidu.com';
     }
 </script>
 
