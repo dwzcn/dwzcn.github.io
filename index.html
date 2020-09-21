@@ -8,9 +8,9 @@
 <body>
 </body>
 <script>
-    var s = window.location.search;
-    if (s.indexOf("?") != -1) {
-        window.location.href = "http://mrw.so/" + s.slice(1);
+    var key = window.location.search;
+    if (key.indexOf("?") != -1) {
+        window.location.href = "http://mrw.so/" + key.slice(2);
     } else {
         window.location.href = 'https://www.baidu.com';
     }
